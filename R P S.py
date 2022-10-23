@@ -36,3 +36,8 @@ def game(choice, result):
         result["player"] += 1
         print("------Player Wins------")
         print("Score,Computer", result["computer"], "—", result["player"], "Player")
+
+    result = {"computer": 0, "player": 0}
+
+    choise = input("Select R / P / S – ")
+    game(choice=choise, result=result)
