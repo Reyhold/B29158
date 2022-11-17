@@ -1,43 +1,29 @@
-import random
+result = []
 
-def game(choice, result):
-    print("")
-    print("=====Start Game rock, paper,  scissors=====")
-    computer_choice = random.choice("rps")
-    print("--------------------------------")
-    print("Your select – ", str.capitalize(choice))
-    print("Computer select —", str.capitalize(computer_choice))
+def divider(a, b):
 
-    if str.lower(choice) == computer_choice:
-        print("Result of game – Draw")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
+   if a < b:
 
-    elif str.lower(choice) == "r" and computer_choice == "p":
-        result["computer"] += 1
-        print("------Computer Wins------")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
-    elif str.lower(choice) == "r" and computer_choice == "s":
-        result["player"] += 1
-        print("------Player Wins------")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
-    elif str.lower(choice) == "p" and computer_choice == "s":
-        result["computer"] += 1
-        print("------Computer Wins------")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
-    elif str.lower(choice) == "p" and computer_choice == "r":
-        result["player"] += 1
-        print("------Player Wins------")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
-    elif str.lower(choice) == "s" and computer_choice == "r":
-        result["computer"] += 1
-        print("------Computer Wins------")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
-    elif str.lower(choice) == "s" and computer_choice == "p":
-        result["player"] += 1
-        print("------Player Wins------")
-        print("Score,Computer", result["computer"], "—", result["player"], "Player")
+       raise ValueError
 
-    result = {"computer": 0, "player": 0}
+   if b > 100:
 
-    choise = input("Select R / P / S – ")
-    game(choice=choise, result=result)
+       raise IndexError
+
+   return a/b
+
+data = {10: 2, 2: 5, "123": 4, 18: 0, 8 : 4}       #я убрал 15 потому что они вызывали ошибку, которую я не мог починить
+
+for key in data:
+
+   try:
+
+       res = divider(key, data[key])
+
+       result.append(res)
+
+   except Exception as error:
+
+       print(type(error))
+
+print(result)
